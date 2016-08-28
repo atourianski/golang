@@ -13,13 +13,18 @@ loops()
 moreLoops()
 
 fizzbuzz()
+
+slices()
+
+typesTest(5, "birch")
+
 }
 
 func convertToC(x int){
 
 celsius := (x - 32) * 5/9
 
-fmt.Println(celsius)
+fmt.Println(string(celsius) + "C") 
 
 }
 
@@ -78,4 +83,48 @@ for i:=1; i<101; i++ {
 	fmt.Println(i)
 	}
 }
+}
+
+func slices(){
+
+x := []string { "grass", "fly", "plant" }
+
+xx := append(x, "cow")
+
+fmt.Println(xx)
+
+slice1 := []int{1,2,3}
+
+slice2 := make([]int, 2)
+
+copy(slice2, slice1)
+
+fmt.Println(slice1, slice2)
+
+names := map[int]string{
+1: "aaa",
+2: "bbb",
+3: "ccc",
+4: "ddd",
+5: "eee",
+6: "fff",
+
+}
+
+www := [6]string{"a","b","c","d","e","f"}
+
+slice3 := www[2:5]
+
+fmt.Println("c d e")
+fmt.Println(slice3)
+
+fmt.Println(names[6], names[1])
+fmt.Println(slice1[0])
+
+}
+
+func typesTest (x int, y string){
+
+
+fmt.Println(string(x) + "is a number and " + y + " is a string")
 }
