@@ -28,7 +28,7 @@ func closure() func() int{
 	return inner 
 }
 
-//when a function loops on itself by calling itself within its own body, example:
+//recursion is when a function loops on itself by calling itself within its own body, example:
 
 func countDown(x int) int {
 
