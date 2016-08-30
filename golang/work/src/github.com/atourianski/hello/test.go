@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+import "strconv"
+
 func main(){
 
 convertToC(50)
@@ -125,6 +127,9 @@ fmt.Println(slice1[0])
 
 func typesTest (x int, y string){
 
-
-fmt.Println(string(x) + "is a number and " + y + " is a string")
+fmt.Println(strconv.Itoa(x) + " is a number and " + y + " is a string")
 }
+
+
+
+
