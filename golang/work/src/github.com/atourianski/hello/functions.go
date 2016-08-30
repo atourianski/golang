@@ -10,6 +10,8 @@ add := closure()
 
 fmt.Println(add())
 
+deferExample()
+
 }
 
 // a closure is a function with preserved data, it has access to the parent scope, even after the
@@ -24,3 +26,12 @@ func closure() func() int{
 	return inner 
 }
 
+//defer postpones the execution of a function until the surrounding function returns, example:
+
+func deferExample() string {
+
+	defer fmt.Println("World")
+
+	fmt.Println("Hello")
+	
+}
