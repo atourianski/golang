@@ -10,7 +10,9 @@ add := closure()
 
 fmt.Println(add())
 
-deferExample()
+//deferExample()
+
+countDown(3)
 
 }
 
@@ -26,12 +28,29 @@ func closure() func() int{
 	return inner 
 }
 
+//when a function loops on itself by calling itself within its own body, example:
+
+func countDown(x int) int {
+
+	if (x > 0) {
+		 countDown(x-1)	//<-- countDown calls itself here
+	}
+	fmt.Println(x)
+	return x	
+}
+	
+
 //defer postpones the execution of a function until the surrounding function returns, example:
 
-func deferExample() string {
+//func deferExample() string {
 
-	defer fmt.Println("World")
+//	defer fmt.Println("World")
 
-	fmt.Println("Hello")
+//	fmt.Println("Hello")
 	
-}
+//}
+
+//panic aborts if a function returns an error so that you don't have to deal with the broken function running all //the way through, example:
+
+
+
