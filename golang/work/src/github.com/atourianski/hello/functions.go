@@ -10,7 +10,7 @@ add := closure()
 
 fmt.Println(add())
 
-//deferExample()
+deferExample()
 
 countDown(3)
 
@@ -42,15 +42,15 @@ func countDown(x int) int {
 
 //defer postpones the execution of a function until the surrounding function returns, example:
 
-//func deferExample() string {
+func deferExample()  {
 
-//	defer fmt.Println("World")
+	defer fmt.Println("World")
 
-//	fmt.Println("Hello")
-	
-//}
+	fmt.Println("Hello")
 
-//panic aborts if a function returns an error so that you don't have to deal with the broken function running all //the way through, example:
+}
 
+//panic aborts if a function returns an error so that you don't have to deal with the broken function running all the way through, example:
 
+//recover -- don't quite understand it yet
 
