@@ -17,10 +17,12 @@ length, width int
 
 }
 
-func (r1 *rectangle) area() int{	//this is a method, that is, a function that is attached to a given	
-					// type, it should have a 'receiver', the receiver here is 
+//a method is a function that is attached to a type, usually has a 'receiver'
+//in the example below, the receiver is (r1 *rectangle), example:
+
+func (r1 *rectangle) area() int{		
+	
 	return r1.length * r1.width	
-					//(r1 *rectangle)
 }
 
 func main() {
