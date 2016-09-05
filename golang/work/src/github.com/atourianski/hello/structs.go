@@ -17,10 +17,10 @@ length, width int
 
 }
 
-func (r1 *rectangle) area() int{//this is a method, that is, a function that is attached to a given	
-// type, it should have a 'receiver', the receiver here is 
-	return r1.length * r1.width//(r1 *rectangle)
-
+func (r1 *rectangle) area() int{	//this is a method, that is, a function that is attached to a given	
+					// type, it should have a 'receiver', the receiver here is 
+	return r1.length * r1.width	
+					//(r1 *rectangle)
 }
 
 func main() {
