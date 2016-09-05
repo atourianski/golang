@@ -32,6 +32,6 @@ func main() {
 
 	r1 := rectangle{length:5, width:10}
 
-	fmt.Println("The area is ", area(r1))	//cannot use r1 (type rectangle) as type *rectangle						    //in argument to area???
+	fmt.Println("The area is ", area(r1))	//cannot use r1 (type rectangle) as type *rectangle in argument to area???
 
 }
