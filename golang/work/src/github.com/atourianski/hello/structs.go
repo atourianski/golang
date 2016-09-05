@@ -17,8 +17,9 @@ length, width int
 
 }
 
-func area(r1 *rectangle) int{
-
+func area (r1 *rectangle) int{		//this is a method, that is, a function that is attached to a given
+					// type, it should have a 'receiver', the receiver here is 
+					//(r1 *rectangle)
 	return r1.length * r1.width
 }
 
@@ -32,6 +33,6 @@ func main() {
 
 	r1 := rectangle{length:5, width:10}
 
-	fmt.Println("The area is ", area(r1))	//cannot use r1 (type rectangle) as type *rectangle in argument to area???
+	fmt.Println("The area is", area(&r1))
 
 }
