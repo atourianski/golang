@@ -5,6 +5,8 @@ import (
 	"fmt"
 )
 
+//json.Marshall takes a struct instance and converts it to json data (encodes it)
+
 type Box struct {
 	Width  int //make sure all the names are uppercase, or they won't be exported
 	Height int
@@ -13,30 +15,35 @@ type Box struct {
 }
 
 func ExampleMarshal() {
-	LittleBox := Box{Width: 10, Height: 15, Color: "pink", Open: true}
 
-	b, _ := json.Marshal(LittleBox) //json.Marshall takes a go instance and converts it to json data (encodes it)
+	LittleBox := Box{Width: 10, Height: 15, Color: "pink", Open: true} //creating an instance of Box
 
-	s := string(b)
+	b, _ := json.Marshal(LittleBox) //encoding data within LittleBox and storing it within var b
+
+	s := string(b) //converting the current type of uint8 to the type string
 
 	fmt.Println(s)
+}
 
+//json.Unmarshal takes json data and converts it back to go code (decodes it)
+
+type Result struct {
+	Width  int
+	Height int //must have a struct with matching fields for json.Unmarshal to work
+	Color  string
+	Open   bool
 }
 
 func main() {
 
 	ExampleMarshal()
 
-	//json.Unmarshal takes json data and converts it back to go code (decodes it)
+	text := []byte(`{"Width":10,"Height":15,"Color":"pink","Open":true}`) //<--raw json data
 
-	text := "[{\"Width\":10,\"Height\":15,\"Color\":\"pink\",\"Open\":true}]"
+	var result Result
 
-	bytes := []byte(text)
+	json.Unmarshal(text, &result) //decoding the data within the var text and storing it in the struct Result found within the var result
 
-	x := []string{}
-
-	json.Unmarshal(bytes, &x)
-
-	fmt.Println(x)
+	fmt.Println(result)
 
 }
