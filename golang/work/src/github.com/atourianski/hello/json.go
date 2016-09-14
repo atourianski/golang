@@ -22,7 +22,8 @@ func ExampleMarshal() {
 
 	s := string(b) //converting the current type of uint8 to the type string
 
-	fmt.Println(s)
+	fmt.Println(s) //output -> {"Width":10,"Height":15,"Color":"pink","Open":true}
+
 }
 
 //json.Unmarshal takes json data and converts it back to go code (decodes it)
@@ -44,6 +45,6 @@ func main() {
 
 	json.Unmarshal(text, &result) //decoding the data within the var text and storing it in the struct Result found within the var result
 
-	fmt.Println(result)
+	fmt.Println(result) //output -> {10 15 pink true}
 
 }
