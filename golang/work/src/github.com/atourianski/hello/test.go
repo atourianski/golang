@@ -1,135 +1,173 @@
-package main 
+package main
 
-import "fmt"
+import (
+	"fmt"
 
-import "strconv"
+	"strconv"
 
-func main(){
+	"encoding/json"
+)
 
-convertToC(50)
+func main() {
 
-convertToM(50)
+	convertToC(50)
 
-loops()
+	convertToM(50)
 
-moreLoops()
+	loops()
 
-fizzbuzz()
+	moreLoops()
 
-slices()
+	fizzbuzz()
 
-typesTest(5, "birch")
+	slices()
 
-}
+	typesTest(5, "birch")
 
-func convertToC(x int){
+	marshal()
 
-celsius := (x - 32) * 5/9
-
-fmt.Println(string(celsius) + "C") 
-
-}
-
-func convertToM(f float64){
-
-var metres float64 = f *  0.3048
-
-fmt.Println(metres)
+	unmarshal()
 
 }
 
-func loops(){
+func convertToC(x int) {
 
-for i:= 1; i<10; i++ {
+	celsius := (x - 32) * 5 / 9
 
-	if i % 2 == 0{
-	fmt.Println("even")
-
-	}else{
-	fmt.Println("odd")}
-}
-
+	fmt.Println(string(celsius) + "C")
 
 }
 
-func moreLoops(){
+func convertToM(f float64) {
 
-for i := 6; i >= 1; i--{
+	var metres float64 = f * 0.3048
 
-switch i {
-	case 6: fmt.Println(i, "six")
-	case 5: fmt.Println(i, "five")
-	case 4: fmt.Println(i, "four")
-	case 3: fmt.Println(i, "three")
-	case 2: fmt.Println(i, "two")
-	case 1: fmt.Println(i, "one")
-	default: fmt.Println(i, "unknown number")
+	fmt.Println(metres)
+
+}
+
+func loops() {
+
+	for i := 1; i < 10; i++ {
+
+		if i%2 == 0 {
+			fmt.Println("even")
+
+		} else {
+			fmt.Println("odd")
+		}
+	}
+
+}
+
+func moreLoops() {
+
+	for i := 6; i >= 1; i-- {
+
+		switch i {
+		case 6:
+			fmt.Println(i, "six")
+		case 5:
+			fmt.Println(i, "five")
+		case 4:
+			fmt.Println(i, "four")
+		case 3:
+			fmt.Println(i, "three")
+		case 2:
+			fmt.Println(i, "two")
+		case 1:
+			fmt.Println(i, "one")
+		default:
+			fmt.Println(i, "unknown number")
+		}
 	}
 }
-}
 
-func fizzbuzz(){
+func fizzbuzz() {
 
-for i:=1; i<101; i++ {
+	for i := 1; i < 101; i++ {
 
-	if i%3 == 0 && i%5 == 0 {
-        fmt.Println("FizzBuzz")
+		if i%3 == 0 && i%5 == 0 {
+			fmt.Println("FizzBuzz")
 
-	}else if i%3 == 0 {
-	fmt.Println("Fizz")
+		} else if i%3 == 0 {
+			fmt.Println("Fizz")
 
-	}else if i%5 == 0{
-	fmt.Println("Buzz")
+		} else if i%5 == 0 {
+			fmt.Println("Buzz")
 
-	}else{
-	fmt.Println(i)
+		} else {
+			fmt.Println(i)
+		}
 	}
 }
-}
 
-func slices(){
+func slices() {
 
-x := []string { "grass", "fly", "plant" }
+	x := []string{"grass", "fly", "plant"}
 
-xx := append(x, "cow")
+	xx := append(x, "cow")
 
-fmt.Println(xx)
+	fmt.Println(xx)
 
-slice1 := []int{1,2,3}
+	slice1 := []int{1, 2, 3}
 
-slice2 := make([]int, 2)
+	slice2 := make([]int, 2)
 
-copy(slice2, slice1)
+	copy(slice2, slice1)
 
-fmt.Println(slice1, slice2)
+	fmt.Println(slice1, slice2)
 
-names := map[int]string{
-1: "aaa",
-2: "bbb",
-3: "ccc",
-4: "ddd",
-5: "eee",
-6: "fff",
+	names := map[int]string{
+		1: "aaa",
+		2: "bbb",
+		3: "ccc",
+		4: "ddd",
+		5: "eee",
+		6: "fff",
+	}
 
-}
+	www := [6]string{"a", "b", "c", "d", "e", "f"}
 
-www := [6]string{"a","b","c","d","e","f"}
+	slice3 := www[2:5]
 
-slice3 := www[2:5]
+	fmt.Println("c d e")
+	fmt.Println(slice3)
 
-fmt.Println("c d e")
-fmt.Println(slice3)
-
-fmt.Println(names[6], names[1])
-fmt.Println(slice1[0])
+	fmt.Println(names[6], names[1])
+	fmt.Println(slice1[0])
 
 }
 
-func typesTest (x int, y string){
+func typesTest(x int, y string) {
 
-fmt.Println(strconv.Itoa(x) + " is a number and " + y + " is a string")
+	fmt.Println(strconv.Itoa(x) + " is a number and " + y + " is a string")
 }
 
+type Person struct {
+	Name     string
+	Age      int
+	Sex      string
+	Location string
+}
 
+func marshal() {
 
+	Alena := Person{"Alena", 21, "F", "Oakville"}
+	x, _ := json.Marshal(Alena)
 
+	y := string(x)
+
+	fmt.Println(y)
+}
+
+func unmarshal() {
+
+	jsonText := []byte(`{"Name":"Alena","Age":21,"Sex":"F","Location":"Oakville"}`)
+
+	store := Person
+
+	json.Unmarshal(jsonText, &store)
+
+	fmt.Println(store)
+}

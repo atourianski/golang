@@ -39,7 +39,7 @@ func main() {
 
 	ExampleMarshal()
 
-	text := []byte(`{"Width":10,"Height":15,"Color":"pink","Open":true}`) //<--raw json data
+	text := []byte(`{"Width":10,"Height":15,"Color":"pink","Open":true}`) //<--raw json data,must convert string type to byte in order to decode
 
 	var result Result
 
