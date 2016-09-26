@@ -18,7 +18,7 @@ func ExampleMarshal() {
 
 	LittleBox := Box{Width: 10, Height: 15, Color: "pink", Open: true} //creating an instance of Box
 
-	b, _ := json.Marshal(LittleBox) //encoding data within LittleBox and storing it within var b
+	b := json.Marshal(LittleBox) //encoding data within LittleBox and storing it within var b
 
 	s := string(b) //converting the current type of uint8 to the type string
 
